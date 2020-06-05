@@ -11,6 +11,7 @@ pipeline {
         stage('test') {
             steps {
                 bat 'vendor/bin/phpunit' 
+                bat "php vendor/phpunit/phpunit/phpunit --log-junit 'reports/unitreport.xml' --coverage-html 'reports/coverage' --coverage-clover 'reports/coverage/coverage.xml'"
               
         }
     }
