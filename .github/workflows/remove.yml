@@ -1,18 +1,9 @@
 name: "test"
 on:
   pull_request:
-    types: [opened]
-  issue_comment:
-    types: [created]
+    types: [closed]
 jobs:
-  Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: khan/pull-request-comment-trigger@master
-        id: check
-        with:
-          trigger: 'firas'
-          reaction: rocket
-        env:
-          GITHUB_TOKEN: '${{ secrets.FIRAS }}'
+ build:
+  runs-on: ubuntu-latest
+  steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
