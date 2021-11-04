@@ -14,5 +14,5 @@ jobs:
           trigger: 'firas'
           reaction: rocket
         env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+          GITHUB_TOKEN: '${{ secrets.FIRAS }}'
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
