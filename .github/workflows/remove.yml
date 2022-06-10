@@ -1,9 +1,16 @@
-name: "test"
+name: Release for production
+
 on:
-  pull_request:
-    types: [closed]
+  push:
 jobs:
- build:
-  runs-on: ubuntu-latest
-  steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+  build:
+    name: Generate build
+
+    runs-on: [linux, arm64]
+    steps:
+    - name: Set up Elixir
+      run: |
+        curl https://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc | sudo apt-key add -
+        sudo apt-add-repository 'deb https://packages.erlang-solutions.com/ubuntu focal contrib'
+        sudo apt-get update
+        sudo apt-get install -y esl-erlang=1:24.2.1-1 elixir=1.12.2-1 gawk
