@@ -6,7 +6,7 @@ jobs:
   build:
     name: Generate build
 
-    runs-on: [linux, arm64]
+    runs-on: ubuntu-latest
     steps:
     - name: Set up Elixir
       run: |
