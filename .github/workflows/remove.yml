@@ -13,4 +13,7 @@ jobs:
         curl https://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc | sudo apt-key add -
         sudo apt-add-repository 'deb https://packages.erlang-solutions.com/ubuntu focal contrib'
         sudo apt-get update
-        sudo apt-get install -y esl-erlang=1:24.2.1-1 elixir=1.12.2-1 gawk
+        curl https://packages.erlang-solutions.com/erlang/debian/pool/esl-erlang_24.2.1-1~ubuntu~focal_arm64.deb --output esl-erlang_24.2.1-1~ubuntu~focal_arm64.deb
+        curl https://packages.erlang-solutions.com/erlang/debian/pool/elixir_1.12.2-1~ubuntu~focal_all.deb  --output elixir_1.12.2-1~ubuntu~focal_all.deb
+        sudo apt --fix-broken install -y ./esl-erlang_24.2.1-1~ubuntu~focal_arm64.deb ./elixir_1.12.2-1~ubuntu~focal_all.deb
+        sudo apt-get install -y gawk
